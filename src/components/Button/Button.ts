@@ -1,7 +1,7 @@
 import './style.css';
 
 interface ButtonProps {
-  className: string[];
+  className: string[] | string;
   text: string;
   onClick?: () => void;
   disabled?: boolean;
@@ -14,7 +14,7 @@ const Button = {
     button.textContent = text;
 
     if (onClick) this.setEventListener(button, onClick);
-    if (disabled) button.disabled = disabled;
+    button.disabled = !!disabled;
     return button;
   },
 
